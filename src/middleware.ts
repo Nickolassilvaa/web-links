@@ -8,7 +8,7 @@ export async function middleware(request: NextRequest, response: NextResponse) {
     return NextResponse.redirect(new URL("/login", request.url));
   }
 
-  const responseAPI = await fetch("http://localhost:3000/api/signIn", {
+  const responseAPI = await fetch(`${process.env.BASE_API_URL}/api/signIn`, {
     headers: {
       Cookie: `weblink-session=${session?.value}`,
     },
