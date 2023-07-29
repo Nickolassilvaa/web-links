@@ -15,7 +15,7 @@ export default function Login() {
   return (
     <div className="w-full min-h-screen grid grid-cols-2 items-center justify-center bg-zinc-50">
       <div className="flex items-center justify-center">
-        <Image src={animation} alt="" width={1000} height={1000} className="h-[720px] w-full" />
+        <Image src={animation} alt="" width={1000} height={1000} className="w-3/4" />
       </div>
       <div className="flex items-center justify-center">
         <div className="max-w-xs w-full space-y-4">

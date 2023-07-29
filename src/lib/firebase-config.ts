@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { GoogleAuthProvider, getAuth, signInWithPopup, signOut } from "firebase/auth";
+import { GoogleAuthProvider, getAuth, getRedirectResult, signInWithRedirect, signOut, signInWithPopup } from "firebase/auth";
 import { getFirestore, query, getDocs, collection, where, addDoc } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -17,9 +17,14 @@ const db = getFirestore(app);
 
 const googleProvider = new GoogleAuthProvider();
 
+
 const signInWithGoogle = async () => {
   try {
-    const res = await signInWithPopup(auth, googleProvider);
+    const res = await signInWithPopup(auth, googleProvider); 
+    // signInWithRedirect(auth, googleProvider);
+    // const res = await getRedirectResult(auth);
+    // if(!res) return null;
+    console.log(res.user)
     const user = res.user;
     const q = query(collection(db, "users"), where("uid", "==", user.uid));
     const docs = await getDocs(q);
