@@ -29,11 +29,11 @@ export function LogoutDialogComponent() {
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel className="bg-red-200 border-none rounded text-red-500 font-semibold hover:bg-red-300 hover:text-red-600">Cancelar</AlertDialogCancel>
-          <AlertDialogAction>
-            <AuthButtonComponent authType="signOut">
+          <AuthButtonComponent authType="signOut">
+            <AlertDialogAction>
               Continuar
-            </AuthButtonComponent>
-          </AlertDialogAction>
+            </AlertDialogAction>
+          </AuthButtonComponent>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
