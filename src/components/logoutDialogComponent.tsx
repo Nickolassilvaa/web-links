@@ -30,7 +30,7 @@ export function LogoutDialogComponent() {
         <AlertDialogFooter>
           <AlertDialogCancel className="bg-red-200 border-none rounded text-red-500 font-semibold hover:bg-red-300 hover:text-red-600">Cancelar</AlertDialogCancel>
           <AuthButtonComponent authType="signOut">
-            <AlertDialogAction>
+            <AlertDialogAction className="w-full">
               Continuar
             </AlertDialogAction>
           </AuthButtonComponent>
