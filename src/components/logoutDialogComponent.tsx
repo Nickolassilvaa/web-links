@@ -1,6 +1,5 @@
 import {
   AlertDialog,
-  AlertDialogAction,
   AlertDialogCancel,
   AlertDialogContent,
   AlertDialogDescription,
@@ -29,10 +28,8 @@ export function LogoutDialogComponent() {
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel className="bg-red-200 border-none rounded text-red-500 font-semibold hover:bg-red-300 hover:text-red-600">Cancelar</AlertDialogCancel>
-          <AuthButtonComponent authType="signOut">
-            <AlertDialogAction className="w-full">
-              Continuar
-            </AlertDialogAction>
+          <AuthButtonComponent authType="signOut" className="h-10 px-4 py-2 bg-primary text-primary-foreground hover:bg-primary/90 inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50">
+            Continuar
           </AuthButtonComponent>
         </AlertDialogFooter>
       </AlertDialogContent>
