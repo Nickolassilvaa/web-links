@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/dialog"
 
 import { BiPlus } from 'react-icons/bi'
+import { LinkForm } from "./formComponent"
 
 export function DialogComponent() {
   return (
@@ -19,8 +20,11 @@ export function DialogComponent() {
         <DialogHeader>
           <DialogTitle>Adicionar aos favoritos</DialogTitle>
           <DialogDescription>
-            Formulário para adicionar o link
+            Adicione aos favoritos
           </DialogDescription>
+          <div className="pt-5">
+            <LinkForm />
+          </div>
         </DialogHeader>
       </DialogContent>
     </Dialog>
