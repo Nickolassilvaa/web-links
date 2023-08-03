@@ -8,7 +8,7 @@ import { DialogComponent } from "@/components/dialogComponent";
 
 import { FiTrash, FiEdit } from 'react-icons/fi'
 import { db } from "@/lib/firebase-config";
-import { query, collection, where, getDocs, orderBy } from "firebase/firestore";
+import { query, collection, where, getDocs, orderBy, DocumentData, QuerySnapshot } from "firebase/firestore";
 import { NextResponse } from "next/server";
 
  
@@ -23,7 +23,7 @@ type User = {
   picture: string;
 }
 
-export async function getLinks() {
+export async function getLinks(): Promise<DocumentData[]> {
   const session = cookies().get('weblink-session')
 
   const token = session!.value
@@ -38,7 +38,6 @@ export async function getLinks() {
     const data = doc.data();
     parsedData.push(data);
   }); 
-
 
   return parsedData
 }
@@ -65,19 +64,15 @@ export default async function Profile() {
         <div className="flex-1 py-4 px-4 w-full flex flex-col">
           <h1 className="text-lg font-bold">Meus favoritos</h1>
           <div className="mt-4 w-full flex-1 space-y-2">
-            {response.map(item => {
-              return (
-                <>
-                  <div key={item.id} className="flex-1 bg-slate-100 flex items-center justify-between px-2 py-2 rounded">
-                    <a href={item.link} target="_blank" className="text-sm font-medium text-slate-500">{item.nickname}</a>
-                    <div className="flex items-center gap-2">
-                      <FiEdit />
-                      <FiTrash />
-                    </div>
-                  </div>
-                </>
-              )
-            })}            
+            {response.map((item) => (
+              <div key={item.id} className="flex-1 bg-slate-100 flex items-center justify-between px-2 py-2 rounded">
+              <a href={item.link} target="_blank" className="text-sm font-medium text-slate-500">{item.nickname}</a>
+              <div className="flex items-center gap-2">
+                <FiEdit />
+                <FiTrash />
+              </div>
+            </div>
+            ))}            
           </div>
         </div>
       </section>
